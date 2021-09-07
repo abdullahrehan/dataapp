@@ -1,0 +1,157 @@
+header{
+    background-color: #242424;
+    height:100%;
+    width: 100%;
+    color: white;
+    border-bottom: 1px solid powderblue;
+    display: flex;
+    text-align: center;  
+    padding-top: 6px;
+   position: relative;
+   top: 0%;
+   left: 0%; 
+}
+#header_username {
+    /* position: absolute; */
+    top: 9%;
+    left: 1%;
+    font-size: 1.8vw;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex: 1.7;
+}
+#header_username_img_div{
+    /* width:21%; */
+    /* position:absolute; */
+    display: flex;
+    background-color:#0000;
+    border-radius:100px;
+    /* height:92%; */
+    overflow:hidden;
+    flex:1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#header_username_name_div{
+    /* padding-top:2%; */
+    /* position:relative; */
+    display: flex;
+    top:10%;
+    left:2%;
+    flex:2;
+    justify-content: center;
+    align-items: center;
+}
+
+#heading{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex: 11;
+    font-size: 2rem;
+    font-weight: 600;
+
+
+}
+#header_aboutUs{
+
+    
+    justify-content: center;
+    text-align: center; 
+    align-items: center;
+    flex:1
+
+}
+#header_settings{
+
+    justify-content: center;
+    text-align: center; 
+    align-items: center;
+    -webkit-transition: -webkit-transform .2s ease-in;
+    flex:1
+    
+}
+#header_settings:hover{
+    cursor: pointer;
+    color: cadetblue;
+    transform: rotate(60deg);
+    font-size: 1em; 
+}
+#header_logout_btn{ 
+
+    justify-content: center;
+    text-align: center; 
+    
+    align-items: center;
+    border:1px solid white;
+ 
+}
+#confirm_logout_background_fade_div{
+    position: fixed;
+    top: 9vh;
+    left: 0px;
+    width: 100vw;
+    height: 91vh;
+    background-color: #0009;
+    z-index: 8;
+    bottom: 0px;
+
+}
+#confirm_logout_div{
+    position: absolute;
+    width: 546px;
+    height: 49%;
+    left: 29%;
+    top: 23%;
+    z-index: 29;
+    background-color: #181818;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid;
+ 
+
+}
+#confirm_logout_cross{
+    position: relative;
+    right: 11px;
+    float: right;
+    top: 3px;
+    font-size: 1.3em;
+} 
+#confirm_logout_cross{
+    position: relative;
+    right: 11px;
+    float: right;
+    top: 3px;
+    font-size: 1.3em;
+}
+#confirm_logout_text{
+    position: relative;
+    font-size: 1.3em;
+    font-weight: bold;
+    top:15%; 
+    text-align:center ;
+
+    
+   
+}
+#confirm_logout_icon{
+    position: relative;
+    top: 15px;
+    left: 73px;
+}
+#confirm_logout_btn{
+    position: relative;
+    top: 53%;
+    height: 49px;
+    left: -65px;
+    padding-top: 2%;
+    
+}
+
+

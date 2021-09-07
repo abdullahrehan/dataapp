@@ -1,0 +1,189 @@
+
+#folder_System_Main_Div{
+
+    background-color: #0009;
+    position:absolute;
+    top:0%;
+    left:0px;
+    right:0px;
+    width:0%;
+    bottom:0px;
+    height:100%;
+    overflow: auto;
+    color:white;
+}
+
+
+#arrow_to_increase_folder_div {
+
+    position: fixed;
+    right: 9%; 
+    z-index: 5;
+    top: 22%;
+    cursor: pointer;
+    width: 3%;
+    display: none;
+
+}
+
+#Folders_Name_Main_Div {
+
+    background-color: black;
+    position: fixed;
+    right: 0%;
+    top: 22.5%;
+    width: 8%;
+    height: 74%;
+    text-align: center;
+
+    z-index: 2;
+    overflow: auto;
+    transition:1s;
+    overflow-x:hidden;
+    height:82%;
+
+}
+
+
+#Folders_Name_Main_Div::-webkit-scrollbar{
+
+    border-radius: 10px;
+    background-color: #555;
+    cursor: pointer;
+    
+}
+
+#Folders_Name_Main_Div::-webkit-scrollbar {
+
+    width: 10px;
+    height: 90%;
+    cursor: pointer;
+
+}
+
+#arrow_to_decrease_folder_div_area{
+
+    display: none;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    color: white;
+
+}
+
+
+#arrow_to_decrease_folder_div_area:hover{
+
+    color: darkslategray;
+
+}
+ 
+
+#create_new_folder{
+
+    font-size: 3.8vw;
+    border-bottom: 1px solid black;
+    position: relative;
+    overflow: hidden;
+    top: -2.2%;
+
+}
+
+#create_folder_icon {
+    cursor:pointer;
+    color:darkslategrey
+}
+
+#folder_names_heading_text {
+    display:none;
+    color:white
+}
+
+
+
+#folders_Delete_Icon {
+
+    position:absolute;
+    right:3%;
+    top:0%;
+    color:darkslategray;
+    display:none
+
+}
+
+#folders_main_div{
+
+    display: block;
+    color: white;
+    overflow:hidden;
+    -webkit-transition: -webkit-transform .2s ease-in;
+}
+
+
+#folder_image_figure {
+
+    width: 8vw;
+    cursor: pointer;
+    overflow: hidden;
+
+}
+
+
+
+#folder_image_figure:hover {
+
+    background-color: #212529;
+    color: lightblue;
+
+}
+
+#folder_image_div {
+    position:relative
+}
+
+#folders_icon_images {
+
+    position: relative;
+    top: 7%;
+    width: 95%;
+    overflow: hidden;
+}
+
+#folders_secure_icon {
+    position:absolute;
+    margin-top:-40%;
+    color:red;
+    left:71%
+
+}
+
+#folders_icon_images_name {
+
+    margin-top: -14%;
+    margin-left: -5%;
+    overflow: hidden;
+    margin-top:2%
+}
+
+
+#delete_Folder_Instructions{
+
+    position:absolute;
+    bottom: 3% ;
+    left: 28% ;
+    color: #212529;
+    font-size:large;
+    font-weight:600;
+    display:none
+
+}
+
+#blur_background_div {
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:1;
+    backdrop-filter: "blur(1px)";
+
+}
+ 

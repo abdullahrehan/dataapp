@@ -1,0 +1,11 @@
+#loadingDiv_Maindiv {
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50;
+    padding-bottom: 10%;
+    backdrop-filter: blur(10px);
+    transition: 1s;
+}

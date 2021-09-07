@@ -1,0 +1,102 @@
+/*------------------------------   Defauts Tab Css   ---------------------------------*/
+html {
+    scroll-behavior: smooth;
+  }
+
+/* {---------------------------------Folder Name heading---------------------------------} */
+
+.border_style{
+    border-image: linear-gradient(to bottom, rgba(0,0,0,0) 16%,white 11%,white 87%,rgba(1,0,0,0) 55%);
+    border-image-slice: 1;
+   
+}
+#secure_folder_tabs{
+    position: absolute;
+    left: 8%;
+    top: 20%;
+}
+/* {------------------------------Word and Pdf tab icons Main div------------------------} */
+
+#Word_pdf_icons_div{
+
+    width: 100%;
+    height: 10%;
+    background-color: #242424;
+    position: relative;
+    overflow: hidden;
+    padding-top: .5%;
+
+}
+
+#Word_icon{
+
+    position: relative;
+    left: 20%;
+
+}
+
+#Pdf_icon{
+
+    position: relative;
+    left: 68%;
+
+}
+
+
+#word_pdf_line{
+
+    background-color: white;
+    position: absolute;
+    top: 8%;
+    left: 52%;
+    width: .3%;
+    height: 88%;
+
+}
+
+
+#word_icon_border_bottom{
+
+    background-color: white;
+    position: absolute;
+    left: 10%;
+    top: 9.8%;
+    width: 30%;
+    height: .5%;
+
+}
+#pdf_icon_border_bottom{
+
+    background-color: white;
+    position: absolute;
+    right: 8%;
+    top: 9.8%;
+    width: 30%;
+    height: .5%;
+
+}
+
+
+#pdf_word_blur_cover{
+
+    width: 100%;
+    height: 10%;
+    background-color: #0001;
+    position: absolute;
+    overflow: hidden;
+    top: 0%;
+    transition: 1s;
+    opacity: 96%;
+    transition:1.2s;
+    background-image: linear-gradient(
+    125deg
+    ,rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    backdrop-filter: blur(40px);
+}
+
+
+
+
+  
+
+

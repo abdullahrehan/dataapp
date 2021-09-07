@@ -1,0 +1,154 @@
+#notesUpload_main_div{
+    /* width: 100%;
+    height: 100%;  */
+    /* display: flex; */
+    flex: 1;
+    /* background-color: teal; */
+    flex-direction: row;
+    background-color:#212529
+}
+#NotesUploads{
+    display: flex;
+    flex: 1;
+}
+ 
+#notes_mainDiv {
+    width: 49.7%;
+    height: 90.5%;
+    background-color: #0003;
+    position: absolute;
+    border: 2px solid teal;
+    top: 9.2%;
+    left: 0.2%;
+    color: wheat;
+}
+
+#notes_textarea {
+    background-color: #0002;
+    width: 88%;
+    height: 84.5%;
+    position: absolute;
+    top: 7%;
+    left: 5%;
+    outline: none;
+    color: white;
+}
+#editor_styling{
+    background-color:teal;
+}
+#uploading-area{
+    background-color: #242424;
+    display: flex;
+    font-size: 2rem;
+    font-weight: 600;
+    justify-content: center;
+    color: white;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+    border-right: 1px solid powderblue;
+    flex: 1;
+    
+}
+
+
+#upload {
+    display: flex;
+    flex: 1 1;
+}
+
+#icons_div{
+
+    position: absolute;
+    width: 3%;
+    height: 38%;
+    left: 80%;
+    top: 13%;
+    color: white;
+}
+
+
+#Notes_upload_Name_area {
+    width: 30vw;
+    height: 6vh;
+    position: relative;
+    left: 37%;
+    /* top: 11.5%; */
+    top:-1.5%;
+    margin-top: -37px;
+}
+
+#upload_input {
+    position: absolute;
+    left:21%;
+    background-color: #0000;
+    border-bottom-color: cadetblue;
+    border-radius: 2px;
+    border-top-color: #0001;
+    border-right: none;
+    border-left-color: #0001;
+    outline: none;
+    color: azure;
+    font-size: 1.5vw;
+    font-weight: 600;}
+#upload_input::placeholder{
+    color: white;
+}
+
+#notes_preview_frame_cross_icon {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    color: white;
+    cursor: pointer;
+}
+
+#editor_div{
+    position: absolute;
+    top: 10%;
+    right: 1%;
+    border: 2px solid darkcyan;
+    padding: 1% 0% 1% 2%;
+    border-top-left-radius: 18px;
+    border-radius: 17px;
+    height: 67%;
+    width: 14%;
+}
+
+
+@media screen and (max-width: 1442px) {
+    #editor_div{
+        position: absolute;
+        top: 10%;
+        right: 1%;
+        border: 2px solid cadetblue;
+        padding: 1% 0% 1% 2%;
+        border-top-left-radius: 18px;
+        border-radius: 17px;
+        height: 76%;
+        width: 14%;
+    }
+  }
+
+#saveButton_notesUpload{
+        position: absolute;
+        bottom: 2%;
+        right: 27%;
+        width: 8%;
+        height: 7%;
+    }
+
+    @media screen and (max-width: 1500px) {
+        #notes_mainDiv {
+            width: 49.7%;
+            height: 99.5%;
+            background-color: #0003;
+            position: absolute;
+            border: 2px solid teal;
+            top: 9.2%;
+            left: 0.2%;
+            color: wheat;
+        }
+
+    }

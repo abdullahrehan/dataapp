@@ -1,0 +1,66 @@
+@mixin defaultDivWithoutColors( $Width, $Height,$Position, $Top, $Bottom, $Left, $Right){
+    width:$Width;
+    height:$Height;
+    position:$Position;
+    top:$Top;
+    bottom:$Bottom;
+    left:$Left;
+    right:$Right;
+}
+
+@mixin defaultDiv( $Width, $Height,$BackgroundColor, $Color, $Position, $Top, $Bottom, $Left, $Right){
+    width:$Width;
+    height:$Height;
+    background-color:$BackgroundColor;
+    color:$Color;
+    position:$Position;
+    top:$Top;
+    bottom:$Bottom;
+    left:$Left;
+    right:$Right;
+}
+
+@mixin keyFrames($Position,$Top,$Bottom,$left,$Right,$name,$From,$To){
+    position:$Position;
+    top:$Top;
+    bottom:$Bottom;
+    left:$left;
+    right:$Right;
+    animation-name: $name;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+  
+    @keyframes #{$name}  {
+  
+      from {transform: rotate($From)}
+      to {transform: rotate($To)}
+    
+    }
+  }
+
+//   ScrollBar Code
+@mixin ScrollBar {
+    
+    &::-webkit-scrollbar{
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+        background-color: #F5F5F5;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: #555;
+        cursor: pointer;
+    }
+    &::-webkit-scrollbar {width:10px;cursor: pointer;}
+    
+}
+    

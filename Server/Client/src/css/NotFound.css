@@ -1,0 +1,41 @@
+#NotFound_main_div{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 91vh;
+    top: 9vh;
+    color: white;
+    overflow: hidden;
+    backdrop-filter: blur(40px);
+    top: 54px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 15px 0px;
+    background-image: linear-gradient(125deg, rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    
+}
+#error_content{
+    position: absolute;
+    left: 37vw;
+    top: 21vh;
+  
+}
+#notFound_firstLine{
+    border-bottom: 3px solid white;
+    font-weight: 800;
+    font-size: 8vh;
+    width: 21vw;
+}
+#notFound_secoundLine{
+    border-bottom: 3px solid white;
+    font-weight: 800;
+    font-size: 8vh;
+}
+#error_message_line{
+    position: relative;
+    font: 5vh;
+}
+#GoBack_button{
+    position: relative;
+    left: 12vw;
+
+}

@@ -1,0 +1,13 @@
+#logoutText{
+    color: white;
+    position: relative;
+    left: 37%;
+    top: 33%;
+    width: 31%;
+    /* height: 27%; */
+    background-color: #0006;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    padding: 2%;
+}

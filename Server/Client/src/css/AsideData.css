@@ -1,0 +1,20 @@
+
+aside {
+    background-color: cadetblue;
+    height: 100%;
+}
+
+aside h2{
+    text-align: center;
+}
+
+#icons {
+    position: relative;
+}
+#file-heading{
+    padding-left: 5px;
+}
+#icons h2 a{padding-left: 5px;
+}
+
+

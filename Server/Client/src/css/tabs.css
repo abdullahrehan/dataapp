@@ -1,0 +1,41 @@
+
+#tabs_mainDiv{
+    display:flex;
+    flex: 1;
+    z-index:1;
+    overflow:hidden;
+}
+
+#mainFolder_tab{
+    position:relative;
+    height:100%;
+    float:left
+}
+
+#tabs_button_div{
+    position:relative;
+    width:100%;
+    height:100%;
+    margin:0%;
+    font-size:1rem;
+    float: left;
+    border-radius: 0px;
+ 
+}
+#tabs{
+    margin:0%;
+    font-size:1vw;
+    height:100%;
+    width:100%;
+    border-radius: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+#tabs_cross_btn{
+    position:absolute;
+    top:26%;
+    right:15.5%;
+    z-index:1;
+    cursor: pointer;
+}

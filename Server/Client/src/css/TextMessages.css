@@ -1,0 +1,297 @@
+#messages_snippet_main{
+    overflow:auto;
+    padding-top: 1.5%;
+    flex:12;
+}
+
+#messages_snippet_main::-webkit-scrollbar{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #0000;
+    cursor: pointer;
+
+}
+
+#messages_snippet_main::-webkit-scrollbar-track{
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #0000;
+    cursor: pointer;
+
+}
+
+#messages_snippet_main::-webkit-scrollbar-thumb{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: teal;
+    cursor: pointer;
+
+}
+
+#messages_snippet_main::-webkit-scrollbar {
+    
+    width: 8px;
+    cursor: pointer;
+
+}
+#text_message_main_div{
+    height: auto;
+ 
+    padding-left: 2%;
+    width: 85%;
+    position: relative;
+    overflow: hidden;
+    right: -13%;
+    margin-bottom: 4%;
+    margin-top: 0%;
+    padding-bottom: 1%;
+}
+
+#text_message_icons_and_heading {
+    color: white;
+    height: 45%;
+    position: absolute;
+    width: 85%;
+}
+
+
+#copy-icon {
+    position: relative;
+    left: 1%;
+    cursor: "pointer";
+}
+#copy-icon:hover{
+    color: cadetblue;
+    cursor:"pointer"
+}
+
+#copy-icon:active{
+    color: white;
+
+}
+
+#txt-message-heading{
+    
+
+    color: white;
+    background-color: cadetblue;
+    border-top-right-radius: 11px;
+    padding-left: 7px;
+    padding-top: 1px;
+    padding-right: 7px;
+    position: absolute;
+    top: 10%;
+    left: 9.2%;
+   
+
+}
+
+#delete-icon{
+    position: absolute;
+    right: 7%;
+    background-color: cadetblue;
+    border-radius: 100px;
+    cursor:pointer;
+    padding: 2px;
+  
+}
+#delete-icon:hover{
+    background-color: darkred;
+    
+}
+#edit-icon{
+    position: absolute;
+    right: 14%;
+    background-color: cadetblue;
+    border-radius: 100px;
+    cursor:pointer;
+    padding: 2px;
+   
+}
+#edit-icon:hover{
+    background-color: coral;
+    
+}
+#save-icon{
+    position: absolute;
+    right: 21.3%;
+    background-color: cadetblue;
+    border-radius: 100px;
+    padding: 2px;  
+    cursor:pointer
+}
+#save-icon:hover{
+    background-color: coral;
+    
+}
+
+#txt-message-box{
+    color: white;
+    height: auto;
+    font-size: 1.4vw;
+    padding-left: 8%;
+    margin-top: 5%;
+    outline: none;
+    width: 96%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 2%;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 12px;
+    border:2px solid cadetblue;
+}
+
+
+#txt-message{
+    /* position: relative;
+    left: 0%;
+    top: 0%; */
+    width: 80%;
+    background-color: #000;
+    border: 0px solid white;
+    outline: none;
+    color: white;
+    height: inherit;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 12px;
+    border:2px solid cadetblue;
+    padding-left: 2%;
+    resize: none;
+    
+}
+#txt-message::-webkit-scrollbar{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #0000;
+    cursor: pointer;
+
+}
+
+#txt-message::-webkit-scrollbar-track{
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #0000;
+    cursor: pointer;
+
+}
+
+#txt-message::-webkit-scrollbar-thumb{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: teal;
+    cursor: pointer;
+
+}
+
+#txt-message::-webkit-scrollbar {
+    
+    width: 4px;
+    cursor: pointer;
+
+}
+#msg-copied {
+    font-size: .9rem;
+    border: 1px solid aqua;
+    position: absolute;
+    right: 0%;
+    top: 58%;
+    background-color: cadetblue;
+    color: aliceblue;
+    border-radius: 2px;
+    width: 16%;
+    height: 38px;
+    border-top-right-radius: 13px;
+    text-align: center;
+    padding-top: 1.5%;
+}
+#msg-copied-view-all {
+    font-size: .7em;
+    transform: rotate(90deg);
+    color: aqua;
+    position: absolute;
+    right: 70%;
+    top: 43%;
+    width: 59%;
+    height: 41px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    padding-top: 2%;
+}
+#text_message_preview_div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    background-color: #0001;
+    color: aliceblue;
+}
+#search {
+    background-color: darkslategray;
+    position: fixed;
+    bottom: 0.1%;
+    width: 48.5%;
+    height: 8%;
+    border-top: 1px solid powderblue;
+    padding-top: 3px;
+    padding-left: 6px;
+    overflow: initial;
+    z-index: 2;
+}
+
+#search input::placeholder{
+   margin-left: 15px;
+    padding-left: 5px;
+    line-height: 1em;
+   
+}
+#search_textarea_header{
+    position: relative;
+    top: -20%;
+    margin-top: -6%;
+    background-color: #121212;
+    border: 1px solid aqua;
+    color: white;
+    width: 20%;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 12px;
+    outline: none;
+    text-align: center;
+    text-decoration-line:none ;
+    z-index: 3;
+ 
+
+}
+#search_textarea_header::placeholder{
+    margin-left: 2%;
+    color: white;
+}
+#search_textarea{
+    width: 94%;
+    right: 3px;
+    bottom: 4%;
+    height: 91%;
+    border-bottom-right-radius: 22px;
+    border-top-left-radius: 22px;
+    z-index: 2;
+    outline: none;
+    text-decoration-line: none;
+    font-weight: 500;
+    color: black;
+    font-size: 1.2vw;
+}
+
+#addtxt-btn{
+    position: absolute;
+    bottom: 12%;
+    right: 1%;
+    border-bottom-right-radius: 22px;
+    height: 78%;
+    z-index: 3;
+}
+

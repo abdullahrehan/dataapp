@@ -1,0 +1,12 @@
+#Files_folder{
+    background-color: #121212;
+    position: absolute;
+    top: 10%;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    bottom: 0px;
+    height: 90%;
+    overflow-y: auto;
+    color: white;
+}

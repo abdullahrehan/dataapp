@@ -1,0 +1,142 @@
+
+#secure_folder_div{
+    /* position:absolute;
+    height:55%;
+    display:block; */
+
+    background-color: #0000;
+    width: 9%;
+    height: 53%;
+    position: absolute;
+    top: 19%;
+
+}
+
+
+#secure_folder_icon{
+    color: white;
+    cursor: pointer;
+    z-index:1;
+    top: 8%;
+    position: absolute;
+    z-index:1
+}
+
+#unsecure_folder_icon{
+    color: white;
+    cursor: pointer;
+    z-index:1;
+    top: 32%;
+    position: fixed;
+    z-index:1;
+    margin-left: .5%;
+
+}
+#secure_folder_icon:hover{
+    color: red;
+}
+#unsecure_folder_icon:hover{
+    color: rgb(19, 212, 19);
+}
+#secure_folder_text{
+    transform: rotate(90deg);
+    display: block;
+    color: slategray;
+    width: 15%;
+    position: fixed;
+    left: 44%;
+    top: 55%;
+    font-size: 1.5vw;
+    font-weight: 600;
+    height: 6%;
+}
+#unsecure_folder_text{
+    transform: rotate(90deg);
+    display: block;
+    color: slategray;
+    width: 100%;
+    position: relative;
+    left: -37%;
+    top: 34%;
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+
+
+#folder_name_input_setSecure_password {
+    background-color: #0002;
+    border-bottom-color: cadetblue;
+    border-radius: 2px;
+    border-top-color: #0001;
+    border-right-color: cadetblue;
+    border-left-color: #0001;
+    outline: none;
+    color: azure;
+    font-size: 1.3vw;
+    position: relative;
+    top: 9%;
+    right: 24%;
+    width: 31%;
+}
+
+#cross_icon {
+    position:absolute;
+    right:4%;
+    top:2%;
+    cursor:pointer
+}
+
+ 
+
+#foldes_System_main {
+    background-color: #0001;
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    bottom: 0px;
+    height: 90%;
+    overflow-y: auto;
+    color: white;
+    z-index: 2;
+}
+#ImageData_folders2 {
+    position: fixed;
+    width: 8%;
+    background-color: black;
+    height: 74%;
+    right: 0%;
+    top: 18.5%;
+    text-align: center;
+    transition: 1s;
+    z-index: 2;
+    overflow: auto;
+}
+#set_folder_name_folderSystem {
+    background-color: #242424;
+    width: 57%;
+    height: 71%;
+    position: absolute;
+    z-index: 2;
+    top: 9%;
+    left: 20%;
+    text-align: center;
+    color: white;
+    padding-top: 14%;
+    border-top-right-radius: 26px;
+    border-bottom-left-radius: 26px;
+    border: 2px solid white;
+}
+#arrow_to_decrease_folder_div_area_TextData{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    color: white;
+}
+
+#arrow_to_decrease_folder_div_area_TextData:hover{
+    color: darkslategray;
+
+} 

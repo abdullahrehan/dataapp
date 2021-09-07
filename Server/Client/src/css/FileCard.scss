@@ -1,0 +1,293 @@
+@import '_mixin';
+
+
+
+#images_mapping_main_div{
+    @include ScrollBar;
+    overflow-y:auto ;
+    display:flex;
+    flex-wrap:wrap;
+    right:0%;
+    align-content: flex-start;
+    flex: 12;
+    overflow-x: hidden;
+    padding-right: 2%;
+    scroll-behavior: smooth;
+    
+
+}
+
+
+.image_Form{
+
+    margin-left:2%;
+    margin-bottom:2.5%;
+    position:relative;
+    top:1%;
+}
+
+#Default_Tab_Image_Card{
+    @include defaultDiv(55%,80%,white,black,relative,0%,null,21%,null);
+    margin: 2% 0% 5% 0% ;
+    border-radius: 8px;
+    text-align: center;
+    border-bottom-right-radius: 54px;
+    box-shadow: 3px 6px 6px 2px #212529;
+    border: 1px solid #0000;
+    overflow: hidden;
+}
+
+#select_div_box {
+    @include defaultDiv(100%,100%,#0009,honeydew,absolute,null,null,null,null);
+    font-size: 2.3vw;
+    font-weight: 400;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30%;
+    opacity: 50;
+    cursor: pointer;
+    background-image: linear-gradient(125deg,rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    backdrop-filter: blur(5px);
+}
+.checkbox {
+    @include defaultDivWithoutColors(11%,8%,absolute,2%,null,0%,null);
+    cursor: pointer;
+}
+
+#three_dots_div{
+    @include defaultDiv(null,null,null,white,absolute,2%,null,null,0%);
+    cursor:pointer;
+    z-index:1;
+
+}
+
+
+#card_image_area{
+    width:100%;
+    position:relative;
+}
+
+#card_image_preview_hover{
+  
+    @include defaultDiv(100%,70%,#0009,white,absolute,0%,null,null,0%);
+    text-align: center;
+    font-size: 3.5vw;
+    padding: 19%;
+    opacity: 0%;
+    transition:1s;
+    
+    
+    &:hover{
+        @include defaultDiv(100%,70%,#0009,white,absolute,0%,null,null,null);
+        font-size: 3.5vw;
+        text-align: center;
+        cursor: pointer;    
+        font-size: 3.5vw;
+        padding: 19%;
+        opacity: 100;
+        transition:1.2s;
+
+    }
+}
+
+#goto_file{
+    @include defaultDiv(null,null,null,white,absolute,-22%,null,0%,null);
+    position: absolute;
+    top: -22%;
+    left: 0%;
+    z-index: 2;
+    color: white;
+    
+    &:hover{
+        color: cadetblue;
+    }
+}
+
+
+#preview_text_div{
+    background-color:#0000;
+    text-align: center;
+    padding-top: 21%;
+    padding-left:12%;
+    opacity:70;
+    position: absolute
+}
+
+#Card_edit_icon{
+    color: white;
+    position: absolute;
+    right: 1%;
+    bottom: 3%;
+
+    &:hover{
+        color: cadetblue;
+      
+    }
+}
+
+/* {------------------------------------- SendToDiv Area ---------------------------------------} */
+
+#sendToDiv{
+ 
+    @include defaultDiv(100%,70%,#0009,white,absolute,0%,null,null,null);
+    font-size: 5.5vw;
+    font-size: 1.5vw;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    padding: 19%;
+    opacity: 100;
+    transition:1.2s;
+    background-image: linear-gradient(125deg,rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    backdrop-filter: blur(5px);
+}
+
+
+#Back_Icon_SendToDiv{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor:pointer
+
+}
+
+/* ------------ sendToDiv_heading ---------- */
+
+#sendToDiv_heading{
+
+    position: absolute;
+    top: 5%;
+    left: 30%;
+    font-size: 1.5vw;
+
+}
+
+/* {-------------- SendToDiv Mapping Folder Names -------------} */
+
+#sendToDiv_maindata_div{
+
+    @include defaultDiv(66%,63%,null,null,absolute,null,null,19%,null);
+    overflow-y: auto;
+
+}
+
+#open_folder_icon:hover{
+
+    color: darkslategray;
+
+}
+
+
+
+
+/* ------------ three_dots_div ---------- */
+
+
+/* {----------------------------------- Card Preview hover -------------------------------------} */
+
+
+
+/* ------------ Card_Main_Image ---------- */
+
+#Card_Main_Image{
+
+    @include defaultDiv(17%,null,null,null,absolute,null,3%,null,0%);
+    cursor:pointer;
+    outline:none;
+
+    &:hover{
+
+        color: cadetblue;
+        cursor:pointer;
+        outline:none;
+    
+    }
+}
+
+
+
+
+/* {-------------------- SendToDiv Back Icon -----------------} */
+
+
+/* ------------ sendToDiv Scrollbar ---------- */
+
+#sendToDiv_maindata_div::-webkit-scrollbar {
+
+    width: 0px;
+    height: 10px;
+    background-color: azure;
+    background-color: #0007;
+
+}
+
+#sendToDiv_mapping_div{
+
+    text-align:left;
+    width:100%;
+
+    &:hover{
+ 
+        background-color: #0003;
+     
+    }
+}
+ 
+
+
+
+
+
+/* {------------------------------------- Image Card Text Area -------------------------------------} */
+
+#Image_Card_Text_area{
+
+    @include defaultDiv(100%,31%,null,null,relative,1%,null,null,null);
+    padding-top:1%;
+    
+}
+
+/* {-------------------- Text Area Image Name ------------------}    */
+
+#Image_Card_Name{
+
+    margin-bottom: .75rem;
+
+}
+
+/* {-------------------- Text Area Buttons Div ------------------} */
+#ImageData_card_button_div{
+
+    @include defaultDiv(100%,21%,null,null,absolute,79%,null,0%,null);
+
+
+}
+
+/* {------------------ Text Area Download Button ---------------}    */
+
+
+.ImageData_card_button1{
+    @include defaultDiv(45%,83%,null,null,absolute,null,5%,1%,null);
+
+}
+
+/* {-------------------- Text Area Delete Button ---------------}   */
+
+.ImageData_card_button2{
+
+    @include defaultDiv(45%,82%,null,null,absolute,null,5%,null,1.2%);
+    border-radius: 29px;
+    border-bottom-right-radius: 367px;
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+.image_Form{
+
+width: 96%;
+height: 50%;
+left: 0%;
+}}

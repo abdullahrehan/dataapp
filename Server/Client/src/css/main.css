@@ -1,0 +1,136 @@
+html{
+  user-select: none;
+}
+#loading_Maindiv{
+    width: 100vw;
+    height: 100vh;
+    background-color:currentcolor;
+    overflow: hidden;
+    z-index: 1122;
+    position: fixed;
+}
+#loading_loader_div{
+    position: absolute;
+    width: 6.5%;
+    height: 14%;
+}
+#AsideData {
+  display: flex;
+  flex: 10 1;
+  overflow: hidden;
+}
+
+
+#loading_loader1{
+  position: absolute;
+  top:0;
+  left: 0%;
+  animation-name: rotate-s-loader1;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  }
+  @keyframes rotate-s-loader1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+  }
+  #loading_loader2{
+    position: absolute;
+    right: 0%;
+    top: 9%;
+    animation-name: rotate-s-loader2;
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+      animation-timing-function: linear;
+  }
+  @keyframes rotate-s-loader2 {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+  #loading_loader3{
+    position: absolute;
+    left: 15%;
+    bottom: 6%;
+    animation-name: rotate-s-loader3;
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+      animation-timing-function: linear;
+  }
+  @keyframes rotate-s-loader3 {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+  #loading_Centered_Div{
+    display: flex;
+    flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      color:white;
+      box-shadow: rgb(0 0 0 / 50%) 0px 2px 15px 0px;
+      background-image: linear-gradient(125deg, rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));}
+  
+      #loading_textArea{
+        position: relative;
+        font-size: 1.2vw;
+        top: 10%;
+      }
+
+
+
+#main_div{
+display: flex;
+flex-direction: column;
+flex: 1;
+height: 100vh;
+overflow: hidden;
+}
+
+#Header{
+    flex: 1;
+}
+
+@media  (min-width:1300px) and (max-width:1470px){  
+
+  #loading_loader_div {
+    position: absolute;
+    width: 7.5vw;
+    height: 16.3vh;
+  }
+}
+
+@media  (min-width:1390px) and (max-width:1490px){  
+  #loading_loader_div {
+      position: absolute;
+      width: 7.1vw;
+      height: 16.3vh;
+}
+}
+@media  (min-width:1490px) and (max-width:1500px){  
+  #loading_loader_div {
+   position: absolute;
+   width: 6.8vw;
+   height: 16.3vh;
+}
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    #Header{
+    display: none;
+    }
+  }
+

@@ -1,0 +1,23 @@
+#Folder_heading_div {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+#folders_Heading {
+    color: cadetblue;
+    display: flex;
+    flex: 2 1;
+    position: absolute;
+    justify-content: flex-end;
+    padding-left: -8%;
+}
+#no_of_files {
+    color: cadetblue;
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-family: cursive;
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    padding-right: 1%;
+}

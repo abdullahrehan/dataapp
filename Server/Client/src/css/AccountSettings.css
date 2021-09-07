@@ -1,0 +1,229 @@
+#confirm_logout_background_fade_div{
+    position: fixed;
+    top: 9vh;
+    left: 0px;
+    width: 100vw;
+    height: 91vh;
+    background-color: #0009;
+    z-index: 8;
+    bottom: 0px;
+
+}
+#header_setting_new_password{
+ 
+    width: 60vw;
+    height: 75vh;
+    background-color: #181818;
+    border: 1px solid white;
+    position: fixed;
+    left: 17%;
+    top: 11%;
+    z-index: 2;
+    color: white;
+    overflow: hidden;
+}
+#account_settings_heading{
+    text-align:center;
+    padding-top:1%;
+}
+#accountSetting_cross_icon{
+    position: absolute;
+    right: 1.5%;
+    top: 2%;
+    
+}
+.crossIcon{
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .2s ease-in;
+}
+.crossIcon:hover{
+    color: cadetblue;
+    transform: rotate(90deg);
+    -webkit-transition: -webkit-transform .2s ease-in;
+}
+#header_account_details_user_image_div{
+    position: absolute;
+    right: 4%;
+    width: 24%;
+    border-radius: 206px;
+    z-index: 3;
+    overflow: hidden;
+    top: 3%;
+    height: 39%;
+}
+#user_details_name{
+font-size:1.4vw;
+color:darkgray
+}
+#user_details_padding{
+    padding-top:1.5%
+}
+#user_details_styles{
+    font-size:1.4vw;
+    color:darkgray
+}
+#header_account_details_user_image{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#header_account_details_input_div{
+    background-color: #0009;
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    left: 0%;
+    bottom: -5%;
+    border-bottom-right-radius: 194px;
+    border-bottom-left-radius: 194px;
+    text-align: center;
+    padding-top: 11%;
+    overflow: hidden;
+    cursor: pointer;
+    
+}
+#change_pic{
+    cursor: pointer;
+    position: absolute;
+    left: 23%;
+}
+#header_account_details_input{
+    position: absolute;
+    left: -43%;
+    bottom: 23%;
+    opacity: 0%;
+    overflow: hidden;
+    padding: 10%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#header_account_details_user_details {
+        position: absolute;
+        top: 23%;
+        left: 7%;
+        font-size: 1.5vw;
+        padding-top: 0%;
+        z-index: 1;
+        width: 93%;
+        height: 52%;
+        -webkit-transition: -webkit-transform .2s ease-in;
+}
+
+#change_password_tools{
+    position: absolute;
+    right: 1%;
+    margin-top: 2%;
+    transition: .5s;
+    float: right;
+    background-color: #0006;
+    height: 24vh;
+    padding-top: 1%;
+    padding-left: 1%;
+    top: 42%;
+}
+#change_password_heading{
+    font-family:700;
+    text-align:center
+}
+#change_password_crossIcon{
+    position:absolute;
+    right:1%;
+    top:3%
+}
+ 
+ 
+.change_password_tools_input_field{
+    position:relative;
+    float:right;
+    right:10%;
+    background-color: #0002;
+    border-bottom-color: cadetblue;
+    border-radius: 2px;
+    border-top-color: #0001;
+    border-right-color: cadetblue;
+    border-left-color: #0001;
+    outline: none;
+    color: azure;
+    font-size: 1.3vw;
+}
+#change_password_tools_input_field::placeholder{
+    color: white;
+    font-size: 1.2vw;
+    color: dimgrey;
+}
+#header_account_details_copyright{
+    position: absolute;
+    top: 93%;
+    text-align: center;
+    left: 24%;
+    color: dimgrey;
+}
+
+#change_password_tools2 {
+    position: absolute;
+    left: 3%;
+    margin-top: 2%;
+    transition: .5s;
+    float: right;
+    background-color: #0006;
+    height: 38vh;
+    padding-top:4%;
+    padding-left: 1%;
+    top: 14%;
+    overflow: hidden;
+}
+#delete_account_heading{
+    font-family:700;
+    text-align:center;
+    color:red
+}
+#delete_account_confirmation_line{
+    color:teal;
+    font-size:0.8rem;
+    text-align:center
+}
+#delete_account_crossIcon{
+    position:absolute;
+    right:1%;
+    top:3%
+}
+.delete_account_email_password_div{
+    padding-left:15%;
+    font-size:1.4rem
+}
+#delete_account_email_input{
+    position:relative;
+    float:right;
+    right:12%;
+    width:70%
+}
+#delete_account_email_error{
+    color:red;
+    font-size:1rem;
+    position:absolute;
+    padding-left:15%
+}
+#delete_account_password_input{
+    position:relative;
+    float:right;
+    right:12%;
+    top:3%;
+    width:60%
+}
+#delete_account_password_error{
+    color:red;
+    font-size:1rem;
+    position:absolute;
+    padding-left:22%
+}
+#delete_account_button{
+    cursor:pointer;
+    position:absolute
+}
+#save_changes_buttton{
+    position:absolute;
+    left:45%;
+    bottom:13%
+}

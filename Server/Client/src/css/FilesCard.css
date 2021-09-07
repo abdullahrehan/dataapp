@@ -1,0 +1,388 @@
+
+#select_div_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0009;
+    color: honeydew;
+    font-size: 2.3vw;
+    font-weight: 400;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 30%;
+    opacity: 50;
+    cursor: pointer;
+    background-image: linear-gradient(125deg,rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    backdrop-filter: blur(5px);
+}
+.checkbox {
+    width: 11%;
+    height: 8%;
+    position: absolute;
+    left: 0%;
+    top: 2%;
+    cursor: pointer;
+}
+.image_Form{
+
+    margin-left:2%;
+    margin-bottom:2.5%;
+    position:relative;
+    top:1%;
+}
+#card_image_area{
+    width:100%;
+    position:relative;
+}
+
+/* {------------------------------------- SendToDiv Area ---------------------------------------} */
+
+#sendToDiv{
+ 
+    background-color: #0009;
+    position: absolute;
+    top: 0%;    
+    color: white;
+    width: 100%;
+    height: 70%;
+    font-size: 5.5vw;
+    text-align: center;
+    font-size: 1.5vw;
+    cursor: pointer;
+    display: none;
+    padding: 19%;
+    opacity: 100;
+    transition:1.2s;
+    background-image: linear-gradient(125deg,rgba(134, 121, 249, 0.05), rgba(113, 255, 151, 0.05));
+    backdrop-filter: blur(5px);
+}
+#images_mapping_main_div{
+    overflow-y:auto ;
+    display:flex;
+    flex-wrap:wrap;
+    /* position:absolute; */
+    /* top:15%; */
+    right:0%;
+    align-content: flex-start;
+    flex: 12;
+    overflow-x: hidden;
+    padding-right: 2%;
+    scroll-behavior: smooth;
+    
+
+}
+
+#images_mapping_main_div::-webkit-scrollbar{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+    cursor: pointer;
+
+}
+
+#images_mapping_main_div::-webkit-scrollbar-track{
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+    cursor: pointer;
+
+}
+
+#images_mapping_main_div::-webkit-scrollbar-thumb{
+
+    border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+    cursor: pointer;
+
+}
+
+#images_mapping_main_div::-webkit-scrollbar {
+    
+    width: 10px;
+    cursor: pointer;
+
+}
+
+#open_folder_icon:hover{
+
+    color: darkslategray;
+
+}
+
+
+
+/* {--------------------------------- Default Image Card -----------------------------------} */
+
+#Default_Tab_Image_Card{
+
+    background-color: white;
+    position: relative;
+    left: 21%;
+    top: 0%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    border-radius: 8px;
+    width: 55%;
+    height: 80%;
+    color: black;
+    text-align: center;
+    border-bottom-right-radius: 54px;
+    box-shadow: 3px 6px 6px 2px #212529;
+    border: 1px solid #0000;
+    overflow: hidden;
+}
+
+/* ------------ three_dots_div ---------- */
+
+#three_dots_div{
+
+    position:absolute;
+    top:2%;
+    right:0%;
+    color:white;
+    cursor:pointer;
+    z-index:1;
+
+}
+
+/* {----------------------------------- Card Preview hover -------------------------------------} */
+
+#card_image_preview_hover{
+  
+    width: 100%;
+    height: 70%;
+    background-color: #0009;
+    position: absolute;
+    top: 0%;
+    text-align: center;
+    color: white;
+    font-size: 3.5vw;
+    padding: 19%;
+    opacity: 0;
+    transition:1s;
+    
+}
+
+
+#card_image_preview_hover:hover{
+
+    background-color: #0009;
+    position: absolute;
+    top: 0%;
+    width: 100%;
+    height: 70%;
+    color: white;
+    font-size: 3.5vw;
+    text-align: center;
+    cursor: pointer;    
+    font-size: 3.5vw;
+    padding: 19%;
+    opacity: 100;
+    transition:1.2s;
+}
+#preview_text_div{
+    background-color:#0000;
+    text-align: center;
+    padding-top: 21%;
+    padding-left:12%;
+    opacity:70;
+    position: absolute
+}
+#goto_file{
+    position: absolute;
+    top: -22%;
+    left: 0%;
+    z-index: 2;
+    color: white;
+}
+
+#goto_file:hover{
+    color: cadetblue;
+}
+/* ------------ Card_Main_Image ---------- */
+
+#Card_Main_Image{
+
+    position:absolute;
+    bottom:3%;
+    right:0%;
+    width:17%;
+    cursor:pointer;
+    outline:none;
+
+}
+#Card_Main_Image:hover{
+
+    color: cadetblue;
+    cursor:pointer;
+    outline:none;
+
+}
+
+#Card_edit_icon {
+    color: white;
+    position: absolute;
+    left: 2%;
+    bottom: 2%;
+}
+
+#Card_edit_icon:hover{
+    color: cadetblue;
+  
+}
+
+
+/* {-------------------- SendToDiv Back Icon -----------------} */
+
+#Back_Icon_SendToDiv{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor:pointer
+
+}
+
+/* ------------ sendToDiv_heading ---------- */
+
+#sendToDiv_heading{
+
+    position: absolute;
+    top: 1%;
+    left: 28%;
+    font-size: 1.5vw;
+
+}
+
+/* {-------------- SendToDiv Mapping Folder Names -------------} */
+
+#sendToDiv_maindata_div{
+
+    position: absolute;
+    left: 19%;
+    width: 66%;
+    height: 63%;
+    overflow-y: auto;
+
+}
+
+/* ------------ sendToDiv Scrollbar ---------- */
+
+#sendToDiv_maindata_div::-webkit-scrollbar {
+
+    width: 0px;
+    height: 10px;
+    background-color: azure;
+    background-color: #0007;
+
+}
+
+/* ------------ sendToDiv_mapping_div ---------- */
+
+#sendToDiv_mapping_div{
+
+    text-align:left;
+    width:100%
+
+}
+
+/* ------------ sendToDiv_mapping_div hover ---------- */
+
+#sendToDiv_mapping_div:hover{
+ 
+    background-color: #0003;
+ 
+}
+
+/* {------------------------------------- Image Card Text Area -------------------------------------} */
+
+#Image_Card_Text_area{
+
+    position:relative;
+    top:1%;
+    padding-top:1%;
+    height:31%;
+    width:100%;
+    
+}
+
+/* {-------------------- Text Area Image Name ------------------}    */
+
+#Image_Card_Name{
+
+    margin-bottom: .75rem;
+
+}
+
+/* {-------------------- Text Area Buttons Div ------------------} */
+#ImageData_card_button_div{
+
+
+    top: 79%;
+    left: 33%;
+    position: absolute;
+    height: 21%;
+    width: 37%;
+
+}
+
+/* {------------------ Text Area Download Button ---------------}    */
+
+
+.ImageData_card_button1{
+
+    position: absolute;
+    bottom: 38%;
+    left: 1%;
+    bottom: 5%;
+    width: 45%;
+    height: 82%;
+    background-color: #0006;
+    border:1px solid #0000;
+    border-radius:50%;
+    left:1%;
+    width:41%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+.ImageData_card_button1:hover{
+    background-color: white;
+    border: 1px solid white;
+    }
+/* {-------------------- Text Area Delete Button ---------------}   */
+
+.ImageData_card_button2{
+
+    position: absolute;
+    bottom: 5%;
+    right: 1.2%;
+    border-radius: 29px;
+    width: 45%;
+    height: 82%;
+    background-color: #0006; 
+    border:1px solid #0000;
+    right:1%;
+    border-radius:50px;
+    width:41%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+}
+.ImageData_card_button2:hover{
+background-color: white;
+border: 1px solid white;
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+.image_Form{
+
+width: 96%;
+height: 50%;
+left: 0%;
+}}

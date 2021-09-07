@@ -1,0 +1,1216 @@
+in manifest 
+
+"proxy": "http://localhost:2000"  
+
+
+
+
+
+
+  // {
+    //   "src": "logo192.png",
+    //   "type": "image/png",
+    //   "sizes": "192x192"
+    // },
+
+    {/* <Editor 
+apiKey="oynfxjwaym4tsdtjnicee05wevuywiq4bbdnz8hp820ii31l"
+tinymceScriptSrc={'https://cdn.tiny.cloud/1/oynfxjwaym4tsdtjnicee05wevuywiq4bbdnz8hp820ii31l/tinymce/5/tinymce.min.js'}
+
+    value={notes}
+    init={{
+        height: 500,
+        menubar: false,
+        skin: "oxide-dark",
+content_css: "dark",
+plugins: [
+            // 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+          'advlist autolink lists link image', 
+          'charmap print preview anchor help',
+          'searchreplace visualblocks code',
+          'insertdatetime media table paste wordcount'
+        ],
+        toolbar:
+          'undo redo | formatselect | bold italic | \
+          alignleft aligncenter alignright | \
+          bullist numlist outdent indent | a11ycheck'
+        //    addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table'
+      }}
+     
+    onEditorCh
+
+    // else if(Data.includes(folder)){
+//     const filterArray1=Data.filter(data=>data!==folder)
+//     const folders=[...filterArray1,folder]   
+//     folders.length>= 5 ? folders.shift():folders
+//     const filterArray=folders.filter(data=>data!=='MainFolder')
+//     console.log(filterArray);
+
+//     Model.findOneAndUpdate( 
+//         {email:req.body.email,"recentFolders.name":tab},
+//         {$set:{[`recentFolders.$.value`]:filterArray}},
+//         {new:true},
+//         (err,data)=>{res.send(data);console.log(data);})     
+// }
+
+
+    {/* <a  href={ViewAllImages? `#images_form${index}` :null}  style={{scrollBehavior:"smooth"}}> */}
+
+        //    onDoubleClick={ViewAllImages?()=>ScrollToPic(index):null }
+
+        hscrollIntoView
+    const ScrollToPic=(index)=>{setViewAllImages(false)}
+
+
+
+    //  const url=`${state.url}`    
+//  const url2=url.split('/')[5]
+//  const url3=url2 ? url2.split('.')[0]:null
+
+            // ${state.currentFolder!==data.name && 
+            // !tabs.findIndex(datas=>datas.name===data.name)+1===tabs.length 
+            // //a && !tabs.findIndex(datas=>datas.name===data.name)===0
+            // ?  "border_style" : ''}`} 
+
+            import React, { Component,useState } from 'react';
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState } from 'draft-js';
+import { convertToRaw } from 'draft-js';
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import '../../css/editor.css'
+import draftToHtml from 'draftjs-to-html';
+  
+function uploadImageCallBack(file) {
+
+  return new Promise(
+    (resolve, reject) => {
+        if (file) {
+            let reader = new FileReader();
+            const upimgfile=file.target.files[0]                
+            // setfile(upimgfile)
+            console.log(upimgfile)
+
+            reader.onload = (e) => {
+                resolve({ data: { link: e.target.result } })
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+);
+}
+
+
+  // const Editors = () => {
+    class Editors extends Component {
+      
+
+      constructor(props) {
+        super(props);
+        this.state = {editorState: EditorState.createEmpty()};
+        this.onChange = editorState => this.setState({editorState});
+      }
+    //   const [file,setfile]=useState('')
+    // const [NotesData,setNotesData]=useState(EditorState.createEmpty())
+
+    
+    // const EditorStateChange=(data)=>{
+    //   // const editorState = EditorState.createWithContent(data.getCurrentContent().getPlainText());
+    //   const data1=data.getCurrentContent()
+    //   const data2=convertToRaw(data1)
+    //   const data3=draftToHtml(data2)
+    //   setNotesData(data3)
+    // }
+    console.log(NotesData)
+    // const toolbarsetting=
+    render(){
+      return(
+    <>
+    <Editor
+     editorState={this.state.editorState}
+      wrapperClassName="demo-wrapper"
+      editorClassName="demo-editor"
+      toolbar={{
+        inline: { inDropdown: true },
+        list: { inDropdown: true },
+        textAlign: { inDropdown: true },
+        link: { inDropdown: true },
+        history: { inDropdown: true },
+        image: { uploadCallback: uploadImageCallBack, alt: { present: true, mandatory: true } },
+      }}
+     onEditorStateChange={this.onChange}
+
+/>
+ 
+    </>)
+    }
+}
+
+  
+export default Editors
+
+
+
+
+import React, { useState,useEffect,useContext,useRef } from 'react'
+import {HiDotsVertical} from 'react-icons/hi'; 
+import {RiFolderSharedFill} from 'react-icons/ri'; 
+import { AiFillDelete } from 'react-icons/ai';
+import { MdEdit } from 'react-icons/md'; 
+import {BsArrowLeftShort} from 'react-icons/bs'; 
+import {HiOutlineDownload} from 'react-icons/hi'; 
+import Context from '../HooksFiles/Context'
+import axios from 'axios' 
+import '../../css/Notes.css'
+ 
+import { Editor } from 'react-draft-wysiwyg';
+import { EditorState,Modifier,getDefaultKeyBinding ,KeyBindingUtil,ContentState,RichUtils,convertFromRaw ,readOnly} from 'draft-js';
+import clearFormatting from 'draft-js-clear-formatting'
+// import Editor from 'draft-js-plugins-editor'
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+
+function Notes({
+    ViewAllDoc,
+    notesData,
+    displaySendToDiv,    
+    folderName,
+    // sendFileFunction,
+    EffectOn,
+    setEffectOn
+}) 
+{
+    const initialstate= EditorState.createEmpty()
+    const {state,dispatch}=useContext(Context)
+    const [NotesData,setNotesData]=useState(initialstate)
+    const currentFolder=state.currentFolder
+ 
+    const deleteNotes=(header,body)=>{
+    
+        axios.post(`http://localhost:2000/delete/notes`,
+        {email:state.accDataVerify.email,
+        header:header,
+        data:body,
+        folder:state.currentFolder})
+        .then(res=>dispatch({type:"setAccountData",accData:res.data}))
+    }
+    
+    const Back_Icon_SendToDiv=(index)=> {
+        // alert(index)
+        console.log(document.getElementsByClassName(`sendToDiv${index}`)[0])    
+        console.log(document.getElementsByClassName(`sendToDiv${index}`))
+        document.getElementsByClassName(`sendToDiv${index}`)[0].style.display='none'
+
+    } 
+
+
+    const sendFileFunction=(folderName,header,body,index)=>{
+    
+        Back_Icon_SendToDiv(index)
+
+        axios.post("http://localhost:2000/sendtofoldersNotes",
+        {email:state.accDataVerify.email,
+        folder:folderName.name,
+        header:header,
+        body:body,
+        currentFolder:state.currentFolder,
+        currentTab:state.currentTab,
+        sendtofile:true})
+
+        // alert(`${JSON.stringify(folderName.name)},${header},${body}`)
+
+        .then(res=>
+        
+            axios.post(`http://localhost:2000/delete/notes`,
+            {email:state.accDataVerify.email,
+            header:header,
+            data:body,
+            folder:state.currentFolder})
+        
+        .then(res=>dispatch({type:"setonEffect",setonEffect:state.onEffect+1})))
+
+    }
+
+    function insertCharacter(characterToInsert, editorState) {
+        const currentContent = editorState.getCurrentContent(),
+              currentSelection = editorState.getSelection();
+      
+        const newContent = Modifier.replaceText(
+          currentContent,
+          currentSelection,
+          characterToInsert
+        );
+      
+        const newEditorState = EditorState.push(editorState, newContent, 'insert-characters');
+      
+        return  newEditorState;
+      }
+      
+
+    return (
+        <div id="textDoc_main_div" 
+        style={{width:ViewAllDoc?"88%":"100%",
+     }}>
+       {/* {console.log(notesData)} */}
+    {notesData!==undefined && notesData.length ? notesData.map((ImageName,index) =>{  
+         
+    return(
+    
+    <>
+        
+        {ImageName.heading===currentFolder && ImageName.body===currentFolder ? null :
+            
+        <form key={index} id="textDoc_form" style={{width:ViewAllDoc?"28%":"52%",height:ViewAllDoc?"35%":'61%',left:ViewAllDoc?"0%":"25%"}}> 
+        {!ViewAllDoc?
+        <div id='textDoc_message_icons_and_heading' >
+            <AiFillDelete id='textDoc_delete' size={29} 
+            onClick={()=>deleteNotes(ImageName.heading,ImageName.body)}
+            />  
+            <MdEdit id='textDoc_editIcon' size={29}  
+             onClick={()=>{dispatch({type:"seteditNotes",editNotes:true})}}
+            />
+            <HiOutlineDownload id='textDoc_saveIcon' size={29}  />
+        </div>  
+:null}
+        {/* --------------------------------- Default Image Card ----------------------------------- */}
+            
+        <div id="textDoc_Image_Card" style={{width:ViewAllDoc?'93%':'89%',height:ViewAllDoc?'88%':'100%',left:ViewAllDoc?'3.5%':'0%'}}>
+            
+            <div id='three_dots_div' 
+            onClick={()=>{displaySendToDiv(index)}}
+             style={{zIndex:state.showFoldersDiv?0:1,top:"1%"}}
+             >
+            
+                <HiDotsVertical size={ViewAllDoc?24:30}/>   
+            
+            </div>
+            
+            <div id="notes_heading" 
+            style={{
+                height:ViewAllDoc?"21%":"13%",
+                fontSize:ViewAllDoc?"100%":"1.3rem",
+                paddingTop:ViewAllDoc?"0%":"1%",
+            
+            }}>
+                {ImageName.heading}</div>   
+                {insertCharacter('hello', NotesData)} 
+                {/* {setNotesData(EditorState.createWithContent(convertFromRaw(JSON.parse(ImageName.body))))} */}
+                {/* EditorState.createWithContent(convertFromRaw(JSON.parse(ImageName.body))) */}
+
+            <div id="notes_body" >
+    <Editor
+        editorState={NotesData}
+        toolbar={{options: []}}
+        readOnly={readOnly}
+/>
+ </div>
+            <div id="effect_div" style={{height:ViewAllDoc?'100%':'60%'}}></div> 
+
+        {/* ---------------------------------- Card Preview hover ------------------------------------ */}
+        
+            <div id="card_image_preview_hover" style={{height:ViewAllDoc?'100%':'100%'}}>
+            
+                <div id="preview_text_div" style={{
+                    width:ViewAllDoc?'100%':"22vw",
+                    height:ViewAllDoc?'100%':"33vh",
+                    fontSize:ViewAllDoc?'2.2vw':"3.2vw",
+                    top:'14%',
+                    left: ViewAllDoc?'-4%':null
+                    ,right: !ViewAllDoc?'4%':null
+                
+                }} 
+                    onClick={()=>{  dispatch({type:"setnotes",notes:ImageName});}}
+                    // onDoubleClick={ViewAllDoc?()=>ScrollToPic(index):null }
+                >
+                    Preview
+                </div > 
+
+                </div>
+                    
+                        
+
+
+        {/* ------------------------------------- SendToDiv Area --------------------------------------- */}
+
+
+                <div id="sendToDiv" className={`sendToDiv${index}`} style={{display:'none',height:ViewAllDoc?"100%":"100%"}} >
+
+                    {/*-------------------- SendToDiv Back Icon -----------------*/}
+                    
+                    <div id="Back_Icon_SendToDiv"  
+                     onClick={()=>{Back_Icon_SendToDiv(index)}}
+                    >
+                        <BsArrowLeftShort size={ViewAllDoc?28:38}/>
+                    </div>
+                    
+                    <div id='sendToDiv_heading' style={{fontSize:ViewAllDoc?"1.1vw":"1.5vw",left:ViewAllDoc?"20%":"30%"}}>Send To Folder</div>
+
+                    {/*-------------- SendToDiv Mapping Folder Names -------------*/}
+
+                    <div id='sendToDiv_maindata_div'>
+
+                        {folderName!==undefined ?folderName.map((folder_datass,indexFolders)=> 
+                        
+                        folder_datass.name===currentFolder ? null :
+                        <div key={indexFolders}  id='sendToDiv_mapping_div' 
+                        onClick={()=>sendFileFunction(folder_datass,ImageName.heading,ImageName.body,index)} 
+                        style={{fontSize:ViewAllDoc?"1vw":"1.5vw",width:"100%"}}>
+                        <a style={{display:ViewAllDoc?"none":"block"}}>
+                        <RiFolderSharedFill/>{folder_datass.name}
+                        </a>
+                                <span style={{display:ViewAllDoc?"block":"none"}}>{folder_datass.name}</span>
+                        </div>
+                        ):null}
+
+                    </div> 
+                </div>
+ 
+                    </div> 
+            
+                </form> }
+        </>
+            )}):null}
+
+    </div>
+    )
+}
+
+export default Notes
+''''    
+    function Export2Word(element, filename = ''){
+        var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+        var postHtml = "</body></html>";
+        var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+    
+        var blob = new Blob(['\ufeff', html], {
+            type: 'application/msword'
+        });
+        
+        // Specify link url
+        var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+        
+        // Specify file name
+        filename = filename?filename+'.doc':'document.doc';
+        
+        // Create download link element
+        var downloadLink = document.createElement("a");
+    
+        document.body.appendChild(downloadLink);
+        
+        if(navigator.msSaveOrOpenBlob ){
+            navigator.msSaveOrOpenBlob(blob, filename);
+        }else{
+            // Create a link to the file
+            downloadLink.href = url;
+            
+            // Setting the file name
+            downloadLink.download = filename;
+            
+            //triggering the function
+            downloadLink.click();
+        }
+        
+    document.body.removeChild(downloadLink);
+    }
+    var FileSaver = require('file-saver');
+ 
+      const DownloadNotes=async(files,index)=>{
+       
+        // axios.post("http://localhost:2000/convert",
+       
+   
+           var blob = new Blob([document.getElementById("notes_body").textContent], {type: "application/msword"});
+               FileSaver.saveAs(blob, `${files.heading}.Docx`);
+        
+      }
+
+
+
+    function insertCharacter(characterToInsert, editorState) {
+        const currentContent = editorState.getCurrentContent(),
+        currentSelection = editorState.getSelection();
+      
+        const newContent = Modifier.replaceText(
+        currentContent,
+        currentSelection,
+        characterToInsert
+        );
+       
+        const newEditorState = EditorState.push(editorState, newContent, 'insert-characters');
+      
+        return  newEditorState;
+    }
+
+
+
+
+
+
+
+
+
+
+
+import React,{ useState,useContext, useRef} from 'react'
+import { ImCross } from 'react-icons/im'; 
+import { FcNext } from 'react-icons/fc'; 
+import { FcPrevious } from 'react-icons/fc'; 
+import dot from '../../images/doted.png'
+import Context1 from '../HooksFiles/Context'
+import ImageUploading from "react-images-uploading";
+import axios from 'axios' 
+import '../../css/ImageUpload.css'   
+ 
+
+function ImagesUploads({ImagesDataApi}) {
+
+    const [file,setfile]=useState([])
+    const {state,dispatch}=useContext(Context1)
+    const [preview_frame,setpreview_frame]=useState(false)
+    const [disableprevbutton]=useState(false)
+    const [disablenextbutton]=useState(false)
+    const [uploadImage,setuploadImage]=useState(null)
+    
+    const [images, setImages] = React.useState([]);
+    const maxNumber = 69;
+    const onChange = (imageList, addUpdateIndex) => {
+      // data for submit
+      console.log(imageList, addUpdateIndex);
+      setImages(imageList);
+    };
+
+
+    const url=""
+    const notesData=useRef()
+ 
+    const previewImage=state.url!==null?true:false
+//------------------------------------------------------Api Sections--------------------------------------------------------------
+
+    //--------------- Function for showing image of upload file -----------------//
+
+    const loadFile = (e) => {
+    
+        const image = new FileReader();
+        const upimgfile=e.target.files[0]   
+        const upimgfilename=e.target.files[0].name  
+    
+        setfile(upimgfile)
+
+        image.onload=()=>{
+
+            // if(upimgfilename.split('.').pop()==='pdf'){dispatch({type:"ChangeUrl",recdata:Imagepdf})}
+            // else if(upimgfilename.split('.').pop()==='doc'){dispatch({type:"ChangeUrl",recdata:Imageword})}
+            // else{dispatch({type:"ChangeUrl",recdata:image.result})}
+            setuploadImage(image.result)
+            // console.log(image.result)
+        }
+            image.readAsDataURL(e.target.files[0])
+            // image.readAsDataURL(e.target.files[1])
+            // console.log(e.target.files,'2')
+
+        }
+ 
+    //--------------- Function for Sending Image data to the Server -----------------//
+    
+ 
+    const imageUpload=(e)=>{
+     
+       e.preventDefault()
+        const form=new FormData();
+        form.append("uploadedFile",file)
+        form.append("email",state.accDataVerify.email)
+        form.append("folder",state.currentFolder)
+        form.append("tab",state.currentTab)
+
+        axios.post("/uploadValue",{tab:state.currentTab,folder:state.currentFolder})         
+        axios.post("/upload",form)         
+      
+   console.log('ok')
+        dispatch({type:"setonEffect",setonEffect:state.onEffect+1})
+        setuploadImage(null)
+    }
+ 
+ 
+   
+      //------------------------------ Next Image btn function --------------------------------//
+    
+    const NextImage=(image)=>{
+        console.log(state.image)
+        console.log(ImagesDataApi)
+        console.log(ImagesDataApi[state.image.index-1])
+        // const demo=state.accDataVerify.imagefolder.main
+        // const findfolders=demo.find(ff=>ff.name===state.currentFolder)
+        // const splitstring=image.split('/')
+        
+        // const findIndex=findfolders.value.find(value=>value.defaultName===splitstring[5])
+        // const index=findfolders.value.indexOf(findIndex) 
+        // const findNextImage=findfolders.value[index+1]
+        // if(findNextImage!==undefined){
+            dispatch({type:"ChangeUrl",recdata:`./Database/${state.accDataVerify.username}/${state.currentTab}/${state.currentFolder}/${ImagesDataApi[state.image.index-1].defaultName}`})
+            dispatch({type:"setimage",image:{name:ImagesDataApi[state.image.index-1],index:state.image.index-1}})
+            // }
+       
+        // else{dispatch({type:"ChangeUrl",recdata:`./uploads/${findfolders.value[0]}`})}
+    }
+
+
+    //------------------------------ Previous Image btn function --------------------------------//
+    
+    const PrevImage=(image)=>{
+        
+//  console.log(state.image)
+//  console.log(ImagesDataApi)
+//  console.log(ImagesDataApi[state.image-1])
+//         const demo=state.accDataVerify.imagefolder.main
+//         const findfolders=demo.find(ff=>ff.name===state.currentFolder)
+//         const splitstring=image.split('/')
+        
+//         const findIndex=findfolders.value.find(value=>value.defaultName===splitstring[5])
+//         const index=findfolders.value.indexOf(findIndex) 
+//         const findNextImage=findfolders.value[index-1]
+//          if(findNextImage!==undefined){dispatch({type:"ChangeUrl",recdata:`./Database/${state.accDataVerify.username}/${state.currentTab}/${state.currentFolder}/${findNextImage.defaultName}`})}
+//        else{dispatch({type:"ChangeUrl",recdata:`./uploads/${findfolders.value[0]}`})}
+dispatch({type:"ChangeUrl",recdata:`./Database/${state.accDataVerify.username}/${state.currentTab}/${state.currentFolder}/${ImagesDataApi[state.image.index+1].defaultName}`})
+dispatch({type:"setimage",image:{name:ImagesDataApi[state.image.index-1],index:state.image.index+1}})
+    }
+
+    const seturl=()=>{
+        dispatch({type:"ChangeUrl",recdata:null})
+    }
+
+    const url1=`${state.url}`    
+    const url2=url1.split('/')[5]
+    // const ImageIndex=null
+        // if(ImagesDataApi!==undefined){
+    // console.log(ImagesDataApi.find(data=>data.defaultName===url2).editedName)
+    //  ImageIndex=ImagesDataApi.length-ImagesDataApi.findIndex(data=>data.defaultName===url2)
+
+    // console.log(ImagesDataApi.length-ImagesDataApi.findIndex(data=>data.defaultName===url2))
+
+// }
+const resetForm=()=>{
+    document.getElementById('ImageUpload_main_div').reset()
+    setuploadImage(null)
+}
+
+//------------------------------------------------------ Html Section --------------------------------------------------------------
+
+    return (
+         <>
+            <form encType="multipart/form-data" method="POST" id='ImageUpload_main_div' onSubmit={imageUpload}   >
+            <ImageUploading
+        multiple
+        value={images}
+        onChange={onChange}
+        maxNumber={maxNumber}
+        dataURLKey="data_url"
+      >
+          {({
+          imageList,
+          onImageUpload,
+          onImageRemoveAll, 
+          isDragging,
+          dragProps
+        }) => (
+            <> 
+        
+   
+            {/* ------------------------------  Image Shwoing Frame Section ------------------------------- */}
+                <div id='drag_and_drop_area' style={{borderBottom:state.currentTab==='textDoc'?"none":"1px solid powderblue",height:state.currentTab==='messages'?"100%":"87%",transition:'1s'}}>
+                {/* <div id="preview_image_button2" style={{display:"flex",justifyContent:"flex-end",padding:".5%"}}>
+                     <button className="btn btn-dark"  onClick={()=>{return setpreview_frame(true)}}>Preview Image</button>
+
+                     </div> */}
+                    <div style={{flex:11}}>
+         
+        
+
+                <span id='preview_frame_cross_icon' style={{left:'47%'}}><ImCross size={30} onClick={resetForm}/></span>
+                    <img src={dot} id="frame" style={{display:state.url!==null?"none":"block",height:state.currentTab==='messages'?"88%":null}}/>
+                    <span id='preview_frame_cross_icon' style={{display:state.url!==null?'block':'none'}}><ImCross size={30} onClick={seturl}/></span>
+                    {/* <img id="output2" width="50" src={uploadImage!==null?uploadImage:null}  /> */}
+                    <div className="upload__image-wrapper">
+             
+          
+             {imageList.map((image, index) => (
+            //    <div key={index} className="image-item">
+                 <img src={image.data_url}  alt="" width="100" />
+                 
+            //    </div>
+             ))}
+           </div>
+                
+                   {previewImage?
+                    <div id="ImageIndex">{ImagesDataApi.length-ImagesDataApi.findIndex(data=>data.defaultName===url2)}/{ImagesDataApi.length-1}</div>
+                    :null}<div id={state.url?'Showing_upload_image_div_image_area2':'Showing_upload_image_div_image_area'} >
+                             <img id="output" width="200" src={state.url}  />
+                    </div>
+                    {previewImage? 
+                    <>
+                  <div>
+                    <button onClick={()=>PrevImage(state.url)} disabled={state.image.index+1==ImagesDataApi.length  ? true:false} id='preview_frame_prev_button' type="button" className="btn btn-dark"><FcPrevious size={30}/></button>
+                    <button onClick={()=>NextImage(state.url)} disabled={state.image.index-1===0 ? true:false} id='preview_frame_next_button' type="button" className="btn btn-dark"><FcNext size={30}/></button>
+                    </div>
+
+                    <div id="preview_frame_imageName">
+                        <h2 style={{borderBottom:'1px solid white'}}>
+                        {state.image.name.editedName!==""?
+                        state.image.name.editedName:
+                        url2}
+                        </h2>
+                    </div>
+                     </>
+                    :null}
+                
+                </div>
+                    
+                    
+                    <div id='Showing_upload_image_div'>
+                        
+                        <div id='Showing_upload_image_div_heading_text' >
+                            Images
+                        </div>
+                        
+                    
+                       
+                     
+                    
+                   
+                    </div>
+
+                     
+                </div>
+        
+
+
+            {/* ------------------------------  Image Upload Section ------------------------------- */}
+
+                <div id="uploading-area" style={{position:"relative",display:state.url!==null? "none":"flex",height:state.currentTab==="messages"?"0%":"12.5%",transition:"1s"}}>
+                    
+                    <div style={{flex:1}}>Upload Files :</div>
+                    
+                    <div id='upload'>
+                        <input 
+                        type="file"
+                        name="file" 
+                  
+                        id="upload_input2"
+                        onClick={onImageUpload}
+                        onChange={loadFile}
+                        style={{left:"0%"}}   
+                        accept={ 'image/png ,image/jpeg ' }
+                        multiple
+                        />
+                        <button style={{marginRight:'2%'}}   type="submit"  className="btn btn-dark">Upload</button>
+                    </div>
+                </div>
+
+            </>
+)}
+      </ImageUploading>
+            </form>
+            
+                            
+            {/* ------------------------------  Images Preview Frame Section ------------------------------- */}
+
+            <div id='Images_preview_frame' style={{display:preview_frame ? 'block':'none'}}>
+               
+                <span id='preview_frame_cross_icon'><ImCross size={30} onClick={()=>{return setpreview_frame(false)}}/></span>
+                <div id='preview_frame_image_div'>
+                    <img id="images_of_preview_frame" width="200" src={state.url} style={{zIndex: 2}}/>
+                    <button onClick={()=>PrevImage(state.url)} disabled={disableprevbutton ? true:false} id='preview_frame_prev_button' type="button" className="btn btn-dark"><FcPrevious size={30}/></button>
+                    <button onClick={()=>NextImage(state.url)} disabled={disablenextbutton ? true:false} id='preview_frame_next_button' type="button" className="btn btn-dark"><FcNext size={30}/></button>
+                </div>   
+          
+            </div>           
+        </>
+    )
+}
+
+export default ImagesUploads
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React,{ useState,useContext, useRef,useEffect} from 'react'
+import { ImCross } from 'react-icons/im'; 
+import { FcNext } from 'react-icons/fc'; 
+import { FcPrevious } from 'react-icons/fc'; 
+import { IoIosColorPalette } from 'react-icons/io'; 
+import Imagepdf from '../../images/pdf.png'
+import Imageword from '../../images/word.png'
+import dot from '../../images/doted.png'
+import background from '../../images/bac.jpg'
+import textfileImg from '../../images/textfile.png'
+import Arrows from '../../images/arrow.png'
+import textImg from '../../images/textImg22.png'
+import Context1 from '../HooksFiles/Context'
+import axios from 'axios' 
+import '../../css/ImageUpload.css'   
+import Editor2 from './Editor2'
+import { CKEditor } from 'ckeditor4-react';
+import { EditorState,getCurrentContent,convertToRaw} from 'draft-js';
+import '../../css/messagesUpload.css'   
+import Parallax from 'scroll-parallax'
+
+import TextSelector from 'text-selection-react'
+
+const initialstate= EditorState.createEmpty()
+function MessagesUpload({textMessagesData,EffectOn,setEffectOn,oldHeading}) {
+
+    const {state,dispatch}=useContext(Context1)
+
+    const [messageHeading,setmessageHeading]=useState('')
+    const [messageBody,setmessageBody]=useState("")
+    const [detectChange,setdetectChange]=useState(false)
+    const [showColors,setshowColors]=useState(false)
+    const [ColorValue,setColorValue]=useState('white')
+    const [Colorhighlights,setColorhighlights]=useState('orangered')
+    
+    const messagesTextarea=useRef()
+    const messagesTextareaHeading=useRef()
+
+    const previewText=state.messages!==null?true:false
+
+    const heading=messagesTextareaHeading.current!==undefined ? messagesTextareaHeading.current.value :null
+    const body=messagesTextarea.current!==undefined ? messagesTextarea.current.value :null
+    const currentFolder=state.currentFolder
+    const oldBody=state.messages!==null ? state.messages.body :null
+    const oldheading=state.messages!==null ? state.messages.heading :null
+
+
+    const [NotesData,setNotesData]=useState(initialstate);
+    const [emptyEditor,setemptyEditor]=useState(0)
+
+    const rescentColrs=useState([{name:"coral",top:20},{name:"orangered",top:40},{name:"cadetblue",top:60},{name:"yellow",top:80},{name:"red",top:100}])
+    const colorsList=useState(['coral','orange','blue','yellow','red','teal','green','white','maroon','black'])
+
+   const uploadMessage =()=>{
+    
+    axios.post('/uploadTxt',
+    {
+        email:state.accDataVerify.email,
+        heading:messageHeading,
+        body:messageBody,
+        folder:state.currentFolder
+    })
+
+  
+    dispatch({type:"setonEffect",setonEffect:state.onEffect+1})
+
+    setmessageHeading('')
+    
+    setmessageBody('') 
+}
+ 
+
+// --------------- Save the updated text ---------------//
+
+const saveMessage=()=>{
+    // if(detectChange==state.messages.heading){ 
+    
+    axios.post("/txt/update",
+    {email:state.accDataVerify.email,
+    heading:messagesTextareaHeading.current.value,
+    body:messagesTextarea.current.value,
+    currentFolder:state.currentFolder,
+    oldBody:state.messages.body,
+    oldheading:oldHeading})
+
+    dispatch({type:"setonEffect",setonEffect:state.onEffect+1})
+    setEffectOn(EffectOn+1)
+    dispatch({type:"setmessages",setmessages:null})
+// }
+    
+}
+// if(state.messages!==null && state.readOnlyText!==null) {
+
+//     if(!state.readOnlyText){
+//         setmessageBody(state.messages.body)}
+
+// }
+const spell=useRef()
+if(spell.current!==undefined){
+ spell.current.spellChecker.removeUnderline = false;}
+const messageIndex=textMessagesData.findIndex(data=>data===state.messages)
+
+var shape = document.querySelector(".left");
+if(document.querySelector(".circularScrollbox")!==null){
+document.querySelector(".circularScrollbox").onscroll=function() {
+   shape.style.marginTop = this.scrollTop+"px";}
+};
+
+
+
+// const rescentColrsRef=useRef()
+
+// const div = document.getElementById("text_body");
+
+// const highlight=()=> {
+//     if(div){
+
+//   const words = div.textContent.split(" ");
+  
+//   div.innerHTML = "";
+//   words.forEach((word,index) => {
+//     const span = div.appendChild(document.createElement('span'));
+//     span.textContent = word + ' ';
+
+//     span.classList.add(ColorValue)
+//     span.classList.add(`span${index}`)
+    
+//   });
+// }
+// }
+// ; 
+// window.onload=function(){ 
+// console.log(window.getSelection(),'asd')
+// div.addEventListener("blur", highlight);
+
+// }
+ 
+
+// if(window.getSelection()){
+// console.log(window.getSelection().toString)
+// }
+// if(document.getElementsByClassName("extracted-simple-text")[0]){document.getElementsByClassName("extracted-simple-text")[0].style.backgroundColor='white'
+// }
+
+// window.onload=()=>{
+//     document.getElementsByClassName("extracted-simple-text").style.backgroundColor="red"
+// }
+
+
+// function getInputSelection(el) {
+//     var start = 0, end = 0, normalizedValue, range,
+//         textInputRange, len, endRange;
+ 
+//     if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+//         start = el.selectionStart;
+//         end = el.selectionEnd;
+//     } else {
+//         range = document.selection.createRange();
+ 
+//         if (range && range.parentElement() == el) {
+//             len = el.value.length;
+//             normalizedValue = el.value.replace(/\r\n/g, "\n");
+ 
+            
+//             textInputRange = el.createTextRange();
+//             textInputRange.moveToBookmark(range.getBookmark());
+ 
+           
+//             endRange = el.createTextRange();
+//             endRange.collapse(false);
+ 
+//             if (textInputRange.compareEndPoints("StartToEnd", endRange) > -1) {
+//                 start = end = len;
+//             } else {
+//                 start = -textInputRange.moveStart("character", -len);
+//                 start += normalizedValue.slice(0, start).split("\n").length - 1;
+ 
+//                 if (textInputRange.compareEndPoints("EndToEnd", endRange) > -1) {
+//                     end = len;
+//                 } else {
+//                     end = -textInputRange.moveEnd("character", -len);
+//                     end += normalizedValue.slice(0, end).split("\n").length - 1;
+//                 }
+//             }
+//         }
+//     }
+ 
+//     return {
+//         start: start,
+//         end: end
+//     };
+//  }
+
+//  if(document.getElementById("trigger")){
+//  document.getElementById("trigger").addEventListener("click", function(){
+//    var input = document.getElementById("text_body");
+//   var inputContent = input.value.length; 
+//   input.focus();
+//   var result = getInputSelection(input);
+//   var resultSpan = document.getElementById("result");
+  
+//   if(result.start == result.end){
+//      resultSpan.innerHTML = "No text selected. Position of cursor is " + result.start +" of " +inputContent;
+//   }else{
+//      resultSpan.innerHTML = "You've selected text ("+result.start+" to "+ result.end +") from a total length of " + inputContent;
+//   }
+  
+//  }, false);
+//  }
+
+
+    return (
+     
+            <div id='messagesUpload_main_div' style={{position:'relative'}}   >
+               <div style={{position:"absolute",width:'100%',height:"100%",zIndex:1}}>
+                   <img src={background} width="100%" height="100%"/>
+                </div>
+               
+                    <div id='Showing_upload_image_div' >
+                                
+                        <div id='Showing_upload_message_div_heading' >
+                            <label id="Showing_upload_image_div_heading_text"> 
+                                Messages
+                            </label>
+                        </div>
+                                
+                        
+                           
+                    <div id="text-Messages-preview-container-Main">
+                        <div id="text-Messages-preview-container" >
+                         
+                            
+                           <div id="text_Messages_header">
+                            <textarea id="text_heading"
+                            ref={spell}
+                            spellCheck={false} 
+                            placeholder="Heading"
+                            defaultValue= {state.messages!==null ?state.messages.heading:messageHeading}
+                            readOnly={state.messages===null ? false : state.readOnlyText}
+                            ref={messagesTextareaHeading}
+                            onChange={(e)=>{setmessageHeading(e.target.value)}}/>                       
+
+                                <div id="cross_btn">
+                                    <ImCross color="white"  size={24}  onClick={()=>{dispatch({type:"setmessages",setmessages:null});
+                                    
+                                    document.getElementById('text_body').value='';
+                                    setmessageBody('');
+                                    setmessageHeading('')
+                                    dispatch({type:"setreadOnlyText",readOnlyText:!state.readOnlyText})  
+                                    // document.getElementsByClassName(`edit-icon${messageIndex}`)[0].style.backgroundColor='cadetblue'  
+                                    // console.log( document.getElementById('text_body').innerText,'sd')
+                                    }}/>
+                                </div>
+                                
+                            </div>    
+                           
+                            <textarea 
+                            // contentEditable={true}
+                            id="text_body"  
+                            placeholder={"Body"}
+                            // defaultValue={state.messages!==null ?state.messages.body :messageBody}
+                            value={state.messages!==null ?state.messages.body :messageBody}
+                            onChange={(e)=>{state.messages!==null ?
+                                dispatch({type:"setmessages",setmessages:e.target.value})
+                                :setmessageBody(e.target.value)}}
+                      
+                            readOnly={state.messages===null ? false : state.readOnlyText}
+                            ref={messagesTextarea}
+                            contentEditable={true}
+                            style={{color:ColorValue}}
+                            
+                            
+                            >
+                            </textarea>
+                     
+                        </div>
+                      
+                        <div id="text_Styling_Main_Div" style={{display:"block"}}>
+
+                            <div style={{position:"relative",width:"100%",height:"100%"}}>
+                                
+                                <div id={showColors?"Color_icon_div":"Color_icon_div2"}>
+                                
+                                    <div id="color_icon" onClick={()=>setshowColors(!showColors)}><IoIosColorPalette color={'white'} size={45}/></div>
+                                
+                                </div>
+                                
+                                <div class={'circularScrollbox'} style={{display:showColors ? 'block' : 'none'}}>
+                                
+                                    <div class="left"></div>
+
+                                    <ol class='scrollboxList'>
+                                       
+                                        {colorsList[0].map(data=>
+                                    
+                                            <li className="vjListItem rellax" onClick={()=>setColorValue(data)}>
+                                            
+                                                {data}
+                                            
+                                                <span style={{backgroundColor:data,width:"15%"}} className={'color-circle'}></span>
+                                            
+                                            </li>
+                                            
+                                       )}
+                                    
+                                    </ol>
+                                
+                                </div>
+
+                            </div>
+
+                            <div id="saved_Colors">
+                                
+                                {rescentColrs[0].map((data,index)=>
+                                     <div >
+                                    
+                                        <span className="saved_colors_circle color-circle" onClick={()=>setColorhighlights(data.name)}  style={{backgroundColor:data.name,position:'absolute',top:`${data.top}%`,cursor:"pointer"}}/>
+                                         
+                                        <span style={{dislay:"none",position:'absolute',top:`${data.top}%`,cursor:"pointer",left:"20%",backgroundColor:"cadetblue",padding:"1%",borderRadius:"5px"}}>
+                                          
+                                                set as Default
+                                        </span>
+                                        
+                                        <input type='checkbox' style={{position:'absolute',top:`${data.top+2}%`,cursor:"pointer",left:"100%"}}/>
+                                    
+                                    </div>
+                                )}
+
+                                <div id="upload_btn"  style={{display: messageHeading!=='' || messageBody!=='' || (state.messages!==null &&  state.readOnlyText===false)? 'block':'block'}}>
+               
+
+                            {/* <button className="btn btn-dark" id="message_submit_btn" 
+                            style={{display: heading!==oldheading || body!==oldBody ? 'block':'none'}} 
+                            onClick={previewText ? saveMessage :uploadMessage}>
+                                {previewText ? "Save" :"Submit"}
+                            </button> */}
+                                      
+                            {/* <textarea id="texto"></textarea><br/> */}
+                            {/* <input type="button" id="trigger" value="Check"/><br/>
+                            <span id="result" style={{color:"white"}}></span> */}
+                              </div>
+                            {/*                          
+                                                    <TextSelector
+                            events={[
+                            {
+                            text: 'Colors',
+                            handler: (html,text)=>{console.log('text')}
+                            
+                            }
+                            ]}
+                            color={Colorhighlights}
+                            colorText={true}
+                            /> */}
+                            </div>
+                        </div>
+                       
+                       
+                       
+                        </div>
+                    </div>
+
+                 
+        </div>
+    )
+}
+
+export default MessagesUpload
+
+
+ 
+
+
+
+
+
+
+
+
+
+ // const setDefaultColorValue=()=>{
+//     const colorName=rescentColrs.find(data=>data.default===true)
+//     // console.log(colorName.name,'colorName')
+//     setColorValue(colorName.name)
+// }
+//     useEffect(() => {
+//     setDefaultColorValue()
+// },[])
+ 
+// console.log(colors.current)
+
+
+function getInputSelection(element) {
+    // var start = 0, end = 0
+ 
+    // if (typeof el.selectionStart == "number" && typeof el.selectionEnd == "number") {
+    //     start = el.selectionStart;
+    //     console.log(el.selectionStart)
+    //     console.log(el.strat)
+    //     end = el.selectionEnd;
+       
+    // } 
+
+    // return {
+    //     start: start,
+    //     end: end
+    // };
+    var caretOffset = 0;
+    var doc = element.ownerDocument || element.document;
+    var win = doc.defaultView || doc.parentWindow;
+    var sel;
+    if (typeof win.getSelection != "undefined") {
+        sel = win.getSelection();
+        if (sel.rangeCount > 0) {
+            var range = win.getSelection().getRangeAt(0);
+            var preCaretRange = range.cloneRange();
+            preCaretRange.selectNodeContents(element);
+            preCaretRange.setEnd(range.endContainer, range.endOffset);
+            caretOffset = preCaretRange.toString().length;
+        }
+    } else if ( (sel = doc.selection) && sel.type != "Control") {
+        var textRange = sel.createRange();
+        var preCaretTextRange = doc.body.createTextRange();
+        preCaretTextRange.moveToElementText(element);
+        preCaretTextRange.setEndPoint("EndToEnd", textRange);
+        caretOffset = preCaretTextRange.text.length;
+    }
+    // console.log(caretOffset);
+    let text=document.getElementById('text_body').innerText
+    const selected=window.getSelection().toString()
+    const selectedLength=selected.length
+    // console.log(selected,selectedLength)
+var index = caretOffset;
+text = text.substring(0, index) + '"><span style={{color:"red"}}>'+selected+'</span>' + text.substring(index+selectedLength);
+// document.getElementById('text_body').innerHTML=""
+// document.getElementById('text_body').value=text
+// document.getElementById('text_body').innerText=text
+console.log(text)
+setNotesData(text)
+// console.log(index,index+selectedLength,text)
+ }
+
+
+if(document.getElementsByClassName("extracted-simple-text")[0]){document.getElementsByClassName("extracted-simple-text")[0].style.backgroundColor='white'
+}
+
+window.onload=()=>{
+    document.getElementsByClassName("extracted-simple-text").style.backgroundColor="red"
+}
+
+ if(document.getElementById("message_submit_btn")){
+ document.getElementById("message_submit_btn").addEventListener("click", function(){
+   var input = document.getElementById("text_body");
+  var inputContent = input.textContent.length; 
+  input.focus();
+  var result = getInputSelection(input);
+  var resultSpan = document.getElementById("result");
+  console.log(result)
+//   if(result.start == result.end){
+//      resultSpan.innerHTML = "No text selected. Position of cursor is " + result.start +" of " +inputContent;
+//      console.log( "No text selected. Position of cursor is " + result.start +" of " +inputContent)
+//   }else{
+//       setStartIndex(result.start)
+//       setEndIndex(result.end)
+
+//      resultSpan.innerHTML = "You've selected text ("+result.start+" to "+ result.end +") from a total length of " + inputContent;
+//      console.log( "You've selected text ("+result.start+" to "+ result.end +") from a total length of " + inputContent)
+//   }
+  
+ }, false);
+ }
+
